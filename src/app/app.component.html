@@ -1,0 +1,74 @@
+  <div style="margin-left: 3rem;margin-right: 3rem;margin-bottom: 10%;" htmlbodyscrollTracker 
+  (bodyscrolled)="bodyScrolled($event)">
+      <h1>Angular-Scroll-Dtector-Demo</h1> 
+      <div class="result">
+        <h3>Scroll to see the magic</h3>
+        <div style="float: left; width:33.3%">
+          <fieldset>
+              <legend>
+                <h4>Element Horizontal Scroll</h4>
+              </legend>
+              <div>
+                  <span style="padding-right: 1rem;font-weight: bold">Horizontal Scroll Position</span>: 
+                  <span style="font-weight: bold;color: teal;padding-left: 1rem;padding-right: 1rem;">{{posHorizontal}}</span> <br> <br>
+                  <span style="padding-right: 1rem;font-weight: bold">Horizontal Scroll End</span>: 
+                  <span style="font-weight: bold;color: teal;padding-left: 1rem;padding-right: 1rem;">{{endReachedHorizontal}}</span>
+              </div>
+          </fieldset>
+        </div>
+        <div style="float: left; width:33.3%">
+            <fieldset>
+                <legend>
+                  <h4>Element Vertical Scroll</h4>
+                </legend>
+                <div>
+                    <span style="padding-right: 1rem;font-weight: bold">Vertical Scroll Position</span> : 
+                    <span style="font-weight: bold;color: teal;padding-left: 1rem;padding-right: 1rem;">
+                        {{posVerticle}}
+                    </span> <br> <br>
+                    <span style="padding-right: 1rem;font-weight: bold">Vertical Scroll End</span> : 
+                     <span style="font-weight: bold;color: teal;padding-left: 1rem;padding-right: 1rem;">{{endReachedVerticle}}</span>
+                </div>
+            </fieldset>
+         </div>
+         <div style="float:left;width: 33.3%">
+            <fieldset>
+                <legend>
+                  <h4>Body Scroll</h4>
+                </legend>
+                <div>
+                    <span style="padding-right: 1rem;font-weight: bold">Horizontal Scroll Position</span> : 
+                    <span style="font-weight: bold;color: teal;padding-left: 1rem;padding-right: 1rem;">
+                        {{bodyHorizontalOff}}
+                    </span> <br> <br>
+                    <span style="padding-right: 1rem;font-weight: bold">Vertical Scroll Position</span> : 
+                     <span style="font-weight: bold;color: teal;padding-left: 1rem;padding-right: 1rem;">{{bodyVerticalOff}}</span>
+                </div>
+            </fieldset>
+         </div>
+      </div>
+      <div class="container" elemntscrollTracker (scrolled)="elementScrollEvt($event)" >
+          <table>
+            <thead>
+              <tr>
+                <th>Column A</th>
+                <th>Column B</th>
+                <th>Column C</th>
+                <th>Column D</th>
+                <th>Column E</th>
+                <th>Column F</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let t of [0,1,2,3,4,5,6,7,8,9,10]">
+                <td>Row 1 Cell 1</td>
+                <td>Row 1 Cell 2</td>
+                <td>Row 1 Cell 3</td>
+                <td>Row 1 Cell 4</td>
+                <td>Row 1 Cell 5</td>
+                <td>Row 1 Cell 6</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+  </div>

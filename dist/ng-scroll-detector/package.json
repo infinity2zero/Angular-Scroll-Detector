@@ -1,0 +1,21 @@
+{
+  "name": "ng-scroll-detector",
+  "version": "0.0.1",
+  "peerDependencies": {
+    "@angular/common": "^8.2.14",
+    "@angular/core": "^8.2.14"
+  },
+  "main": "bundles/ng-scroll-detector.umd.js",
+  "module": "fesm5/ng-scroll-detector.js",
+  "es2015": "fesm2015/ng-scroll-detector.js",
+  "esm5": "esm5/ng-scroll-detector.js",
+  "esm2015": "esm2015/ng-scroll-detector.js",
+  "fesm5": "fesm5/ng-scroll-detector.js",
+  "fesm2015": "fesm2015/ng-scroll-detector.js",
+  "typings": "ng-scroll-detector.d.ts",
+  "metadata": "ng-scroll-detector.metadata.json",
+  "sideEffects": false,
+  "dependencies": {
+    "tslib": "^1.9.0"
+  }
+}
