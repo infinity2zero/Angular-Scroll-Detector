@@ -71,4 +71,30 @@
             </tbody>
           </table>
         </div>
+        <ng-scroll-detector [elementId]="'test'" (ifScroll)="ifScroll($event)">
+          <div class="container" id="test">
+            <table>
+              <thead>
+                <tr>
+                  <th>Column A</th>
+                  <th>Column B</th>
+                  <th>Column C</th>
+                  <th>Column D</th>
+                  <th>Column E</th>
+                  <th>Column F</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let t of [0,1,2,3,4,5,6,7,8,9,10]">
+                  <td>Row 1 Cell 1</td>
+                  <td>Row 1 Cell 2</td>
+                  <td>Row 1 Cell 3</td>
+                  <td>Row 1 Cell 4</td>
+                  <td>Row 1 Cell 5</td>
+                  <td>Row 1 Cell 6</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </ng-scroll-detector>
   </div>

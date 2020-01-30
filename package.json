@@ -4,7 +4,7 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
-    "build": "ng build",
+    "build": "ng build ng-scroll-detector && npm uninstall ng-scroll-detector && npm uninstall ng-scroll-detector && ng serve",
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e"
@@ -20,7 +20,6 @@
     "@angular/platform-browser-dynamic": "~8.2.14",
     "@angular/router": "~8.2.14",
     "core-js": "^3.6.4",
-    "ng-scroll-detector": "file:dist/ng-scroll-detector",
     "rxjs": "~6.5.4",
     "tslib": "^1.9.0",
     "zone.js": "~0.10.2"

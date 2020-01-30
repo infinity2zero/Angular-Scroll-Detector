@@ -1,6 +1,7 @@
-import { Injectable, ɵɵdefineInjectable, Component, EventEmitter, Directive, Output, HostListener, NgModule } from '@angular/core';
+import { Injectable, ɵɵdefineInjectable, EventEmitter, Component, Input, Output, Directive, HostListener, NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { CommonModule } from '@angular/common';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 /**
  * @fileoverview added by tsickle
@@ -25,25 +26,86 @@ NgScrollDetectorService.ctorParameters = () => [];
  * @suppress {checkTypes,constantProperty,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
  */
 class NgScrollDetectorComponent {
-    constructor() { }
+    constructor() {
+        this.ifScroll = new EventEmitter();
+    }
     /**
      * @return {?}
      */
     ngOnInit() {
+        // console.log(this.elementId);
+        // this.elementId = "test";
+    }
+    /**
+     * @return {?}
+     */
+    ngAfterViewChecked() {
+        this.ifScrollBar();
+    }
+    /**
+     * @param {?} changes
+     * @return {?}
+     */
+    ngOnChanges(changes) {
+        for (let propName in changes) {
+            /** @type {?} */
+            let chng = changes[propName];
+            /** @type {?} */
+            let cur = JSON.stringify(chng.currentValue);
+            /** @type {?} */
+            let prev = JSON.stringify(chng.previousValue);
+            console.log('Changes' + prev, cur);
+            // this.changeLog.push(`${propName}: currentValue = ${cur}, previousValue = ${prev}`);
+        }
+    }
+    /**
+     * @return {?}
+     */
+    ifScrollBar() {
+        if (this.elementId) {
+            /** @type {?} */
+            let el = document.getElementById(`${this.elementId}`);
+            console.log(this.elementId);
+            /** @type {?} */
+            let hs = el.scrollWidth > el.clientWidth;
+            /** @type {?} */
+            let vs = el.scrollHeight > el.clientHeight;
+            /** @type {?} */
+            let scrollBar = {
+                elClientWidth: el.scrollWidth,
+                elScrollWidth: el.clientWidth,
+                elScrollHeight: el.scrollHeight,
+                elClientHeight: el.clientHeight,
+                isVs: vs,
+                isHs: hs
+            };
+            this.ifScroll.emit(scrollBar);
+        }
+        else {
+            throw console.error('Element not found, specify element to detect scroll');
+        }
     }
 }
 NgScrollDetectorComponent.decorators = [
     { type: Component, args: [{
-                selector: 'lib-ng-scroll-detector',
+                selector: 'ng-scroll-detector',
                 template: `
-    <p>
-      ng-scroll-detector works!
-    </p>
+    <ng-content></ng-content>
   `
             }] }
 ];
 /** @nocollapse */
 NgScrollDetectorComponent.ctorParameters = () => [];
+NgScrollDetectorComponent.propDecorators = {
+    elementId: [{ type: Input }],
+    ifScroll: [{ type: Output }]
+};
+if (false) {
+    /** @type {?} */
+    NgScrollDetectorComponent.prototype.elementId;
+    /** @type {?} */
+    NgScrollDetectorComponent.prototype.ifScroll;
+}
 
 /**
  * @fileoverview added by tsickle
@@ -151,7 +213,7 @@ NgScrollDetectorModule.decorators = [
     { type: NgModule, args: [{
                 declarations: [NgScrollDetectorComponent, elemntscrollTracker, htmlbodyscrollTracker],
                 imports: [
-                    CommonModule, BrowserModule
+                    CommonModule, BrowserModule, FormsModule, ReactiveFormsModule
                 ],
                 exports: [NgScrollDetectorComponent, elemntscrollTracker, htmlbodyscrollTracker]
             },] }

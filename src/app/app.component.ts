@@ -34,4 +34,7 @@ export class AppComponent implements OnInit {
     this.bodyHorizontalOff = 0;
     this.bodyVerticalOff = 0;
   }
+  ifScroll(evt) {
+    console.log(JSON.stringify(evt));
+  }
 }
