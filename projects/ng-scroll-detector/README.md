@@ -1,24 +1,79 @@
-# NgScrollDetector
+# Angular Scroll Detector
+This angular library is for detecting scrollbar position of any html element as well as the scroll of whole 
+document as well. This library was generated with [Angular CLI](https://github.com/angular/angular-cli) version 8.2.14.
+##Demo
+[Click here to see the demo](https://abhisu.com/ng-scroll-detector).
+## Getting Started
+### Prerequisites : #### There is no dependency at all, if you are using it in angular application
 
-This library was generated with [Angular CLI](https://github.com/angular/angular-cli) version 8.2.14.
+### Step 1 : Installation
+```
+run npm install ng-scroll-detector
+```
+### Step 2 : Consuming-- import the module.
+```
+import{NgScrollDetectorModule} from "ng-scroll-detector"
+```
+### Step 3 : Usages
+#### Element Scroll detection
+```
+<div class="container" elemntscrollTracker (scrolled)="elementScrollEvt($event)" ></div>
+//Subscribe to the event scrolled.
+public elementScrolled(evt) {
 
-## Code scaffolding
+}
+//returned, evt is a JSON which has 
+{
+    posVerticle: Vertical position of the Scrollbar of the element,
+    endReachedVerticle : true|false (If scroll bar reaches at end respectively),
+    posHorizontal: Horizontal position of the Scrollbar of the element,
+    endReachedHorizontal : true|false (If scroll bar reaches at end respectively)
+}
+```
+#### Document|HTML|Body Scroll detection
+#####Place the directive to any element and listen to its event.
+```
+<div class="container" htmlbodyscrollTracker (bodyscrolled)="bodyScrolled($event)"></div>
+//Listen to the event scrolled.
+public bodyScrolled(evt) {
 
-Run `ng generate component component-name --project ng-scroll-detector` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module --project ng-scroll-detector`.
-> Note: Don't forget to add `--project ng-scroll-detector` or else it will be added to the default project in your `angular.json` file. 
+}
+//returned, evt is a JSON which has 
+{
+    verticalOffset: Vertical offset of the body,
+    HorizontalOffset Horizontal offset of the body,
+}
+```
+#### Checking if scrollbar is present in any html container element
 
-## Build
+```
+<ng-scroll-detector [elementId]="'test'" (ifScroll)="ifScroll($event)"></ng-scroll-detector>
+//Listen to the event scrolled.
+public ifScroll(evt) {
 
-Run `ng build ng-scroll-detector` to build the project. The build artifacts will be stored in the `dist/` directory.
+}
+//returned, evt is a JSON which has 
+{
+    elClientWidth,
+    elScrollWidth,
+    elScrollHeight,
+    elClientHeight,
+    isVs: is vertical scroll,
+    isHs: is horizontal scroll
+}
+```
 
-## Publishing
 
-After building your library with `ng build ng-scroll-detector`, go to the dist folder `cd dist/ng-scroll-detector` and run `npm publish`.
+## Contributing
+Please checkout the library repo.[GitHub](https://github.com/suryasharma06/Angular-Scroll-Detector)
 
-## Running unit tests
+## Authors
 
-Run `ng test ng-scroll-detector` to execute the unit tests via [Karma](https://karma-runner.github.io).
+* **Surya Sharma** 
 
-## Further help
+## License
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+This project is licensed under the [MIT](https://github.com/suryasharma06/Angular-Scroll-Detector/blob/master/LICENSE) License.
+
+
+

@@ -1,8 +1,20 @@
 {
   "name": "ng-scroll-detector",
-  "version": "0.0.1",
+  "version": "0.0.12",
   "peerDependencies": {
     "@angular/common": "^8.2.14",
     "@angular/core": "^8.2.14"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "'https://github.com/suryasharma06/Angular-Scroll-Detector'"
+  },
+  "keywords": [
+    "'angular'","'Scroll'","'body Scroll'","'Scroll Detector'","'Check Element Scroll'"
+  ],
+  "author": "'Surya Sharma'",
+  "licenses": [{
+    "type": "MIT",
+    "url": "https://github.com/suryasharma06/Angular-Scroll-Detector/blob/master/LICENSE"
+  }]
 }
